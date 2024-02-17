@@ -1,17 +1,28 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Set<Character> VN = new HashSet<>(Arrays.asList('S', 'A', 'B'));
+        Set<Character> VT = new HashSet<>(Arrays.asList('a', 'b', 'c', 'd'));
+        Map<Character, List<String>> P = new HashMap<>();
+        P.put('S', Arrays.asList("bS", "dA"));
+        P.put('A', Arrays.asList("aA", "dB", "b"));
+        P.put('B', Arrays.asList("cB", "a"));
+        char S = 'S';
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
+        Grammar grammar = new Grammar(VN, VT, P, S);
+
+        FiniteAutomaton finiteAutomaton = grammar.toFiniteAutomaton();
+
+        System.out.println("Generated Strings: ");
         for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            String generated = grammar.generateString();
+            System.out.println(i + " " + generated);
+//            System.out.println("Accepted by automaton? " + finiteAutomaton.stringBelongToLanguage(generated));
         }
+
+
+
     }
 }
+
