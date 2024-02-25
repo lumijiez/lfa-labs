@@ -1,28 +1,25 @@
 import java.util.*;
 
 public class Main {
+    // Define the starting symbol, non-terminal symbols, terminal symbols, and production rules
+    public static final String SS = "S"; // Starting symbol
+    public static final Set<String> VN = Set.of("S", "B", "C"); // Non-terminal symbols
+    public static final Set<String> VT = Set.of("a", "b", "c"); // Terminal symbols
+    public static final Map<String, List<String>> P = Map.of( // Production rules
+            "S", List.of("aB"), // Production rule for S
+            "B", List.of("aC", "bB"), // Production rule for B
+            "C", List.of("bB", "c", "aS")); // Production rule for C
+
     public static void main(String[] args) {
-        Set<Character> VN = new HashSet<>(Arrays.asList('S', 'A', 'B'));
-        Set<Character> VT = new HashSet<>(Arrays.asList('a', 'b', 'c', 'd'));
-        Map<Character, List<String>> P = new HashMap<>();
-        P.put('S', Arrays.asList("bS", "dA"));
-        P.put('A', Arrays.asList("aA", "dB", "b"));
-        P.put('B', Arrays.asList("cB", "a"));
-        char S = 'S';
+        String toCheck = "aac"; // Word to check
 
-        Grammar grammar = new Grammar(VN, VT, P, S);
+        // Create a Grammar object with the defined grammar
+        Grammar grammar = new Grammar(SS, VN, VT, P);
 
-        FiniteAutomaton finiteAutomaton = grammar.toFiniteAutomaton();
+        // Generate strings needed for the validation process
+        grammar.generateNeededStrings(5);
 
-        System.out.println("Generated Strings: ");
-        for (int i = 1; i <= 5; i++) {
-            String generated = grammar.generateString();
-            System.out.println(i + " " + generated);
-//            System.out.println("Accepted by automaton? " + finiteAutomaton.stringBelongToLanguage(generated));
-        }
-
-
-
+        // Check if the given word is valid according to the grammar
+        System.out.println("Is " + toCheck + " valid? " + grammar.isValid(toCheck));
     }
 }
-
