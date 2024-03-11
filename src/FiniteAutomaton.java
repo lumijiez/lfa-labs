@@ -1,36 +1,35 @@
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class FiniteAutomaton {
-    private final Set<String> ALPHABET; // Set of symbols in the alphabet
-    private final Map<String, Map<String, String>> P; // Transition function represented as a map of maps
-    private final String SS; // Starting state
-
-    // Constructor to initialize the FiniteAutomaton with the alphabet, transition function, and starting state
-    public FiniteAutomaton(Set<String> ALPHABET, Map<String, Map<String, String>> P, String SS) {
-        this.ALPHABET = ALPHABET; // Initialize the alphabet
-        this.P = P; // Initialize the transition function
-        this.SS = SS; // Initialize the starting state
+    private final String SS;
+    private final Set<String> alphabet;
+    private final Map<String, Map<String, String>> T;
+    public FiniteAutomaton(String SS, Set<String> VN, Set<String> VT, Map<String, Map<String, String>> T) {
+        this.SS = SS;
+        this.alphabet = VT;
+        this.T = T;
     }
 
-    // Method to validate an input string against the finite automaton
-    public boolean isValid(String input) {
-        String currentState = SS; // Start from the initial state
+    public boolean isValid(String word) {
+        String currentState = SS;
+        for (char symbol : word.toCharArray()) {
+            String symbolStr = String.valueOf(symbol);
 
-        // Iterate over each symbol in the input string
-        for (char symbol : input.toCharArray()) {
-            String symbolStr = String.valueOf(symbol); // Convert the symbol to a string
+            if (!alphabet.contains(symbolStr)) return false;
 
-            // Check if the symbol is in the alphabet
-            if (!ALPHABET.contains(symbolStr)) return false; // If not, the input is invalid
-
-            // Check if there is a transition defined for the current state and symbol
-            if (P.containsKey(currentState) && P.get(currentState).containsKey(symbolStr))
-                currentState = P.get(currentState).get(symbolStr); // Move to the next state
+            if (T.containsKey(currentState) && T.get(currentState).containsKey(symbolStr))
+                currentState = T.get(currentState).get(symbolStr);
             else
-                return false; // If no transition is defined, the input is invalid
+                return false;
         }
-        // Check if the final state is the "OK" state, indicating the input is valid
         return currentState.equals("OK");
     }
+
+
+    public Map<String, Map<String, String>> getTransitions() {
+        return T;
+    }
+
 }
