@@ -16,7 +16,6 @@ public class ChomskyChecker {
                     return "Unrestricted";
                 }
             }
-
         }
         return "Unknown";
     }
