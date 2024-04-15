@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class RegexGenerator {
+
     public static String[] generateRandomNr1(int numStrings) {
         String[] randomStrings = new String[numStrings];
         Random random = new Random();
@@ -12,19 +13,21 @@ public class RegexGenerator {
             StringBuilder sb = new StringBuilder();
 
             sb.append("O");
-            System.out.println(sb);
+            System.out.println("Putting a fixed 'O'");
 
             int length = random.nextInt(1,5);
             for (int j = 0; j < length; j++) {
-                sb.append(randomChar("PQR"));
-                System.out.println(sb);
+                char randomChar = randomChar("PQR");
+                sb.append(randomChar);
+                System.out.println("Putting a random char from \"PQR\": " + randomChar);
             }
 
             sb.append("2");
-            System.out.println(sb);
+            System.out.println("Putting a fixed '2'");
 
-            sb.append(randomChar("34"));
-            System.out.println(sb);
+            char randomDigit = randomChar("34");
+            sb.append(randomDigit);
+            System.out.println("Putting a random digit from \"34\": " + randomDigit);
 
             randomStrings[i] = sb.toString();
             System.out.println("=========================");
@@ -45,25 +48,27 @@ public class RegexGenerator {
 
             int length1 = random.nextInt(6);
             for (int j = 0; j < length1; j++) {
-                sb.append(randomChar("A"));
-                System.out.println(sb);
+                char randomChar = randomChar("A");
+                sb.append(randomChar);
+                System.out.println("Putting a random char from \"A\": " + randomChar);
             }
 
             sb.append("B");
-            System.out.println(sb);
+            System.out.println("Putting a fixed 'B'");
 
-            sb.append(randomChar("CDE"));
-            System.out.println(sb);
+            char randomChar = randomChar("CDE");
+            sb.append(randomChar);
+            System.out.println("Putting a random char from \"CDE\": " + randomChar);
 
             sb.append("F");
-            System.out.println(sb);
+            System.out.println("Putting a fixed 'F'");
 
             char chr = randomChar("GHI");
             sb.append(chr);
-            System.out.println(sb);
+            System.out.println("Putting a random char from \"GHI\": " + chr);
 
             sb.append(chr);
-            System.out.println(sb);
+            System.out.println("Repeating the previous random char: " + chr);
 
             randomStrings[i] = sb.toString();
             System.out.println("=========================");
@@ -85,31 +90,31 @@ public class RegexGenerator {
             int length1 = random.nextInt(1,6);
             for (int j = 0; j < length1; j++) {
                 sb.append("J");
-                System.out.println(sb);
+                System.out.println("Putting a fixed 'J'");
             }
 
             sb.append("K");
-            System.out.println(sb);
+            System.out.println("Putting a fixed 'K'");
 
             length1 = random.nextInt(6);
             for (int j = 0; j < length1; j++) {
-                sb.append(randomChar("LMN"));
-                System.out.println(sb);
+                char randomChar = randomChar("LMN");
+                sb.append(randomChar);
+                System.out.println("Putting a random char from \"LMN\": " + randomChar);
             }
 
             length1 = random.nextInt(2);
             for (int j = 0; j < length1; j++) {
                 sb.append("O");
-                System.out.println(sb);
+                System.out.println("Putting a fixed 'O'");
             }
 
             length1 = 3;
             char chr = randomChar("PQ");
             for (int j = 0; j < length1; j++) {
                 sb.append(chr);
-                System.out.println(sb);
+                System.out.println("Putting a random char from \"PQ\": " + chr);
             }
-
 
             randomStrings[i] = sb.toString();
             System.out.println("=========================");
