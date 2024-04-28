@@ -1,4 +1,4 @@
-package ast_parser;
+package Lab6;
 
 import java.util.ArrayList;
 import java.util.List;

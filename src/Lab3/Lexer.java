@@ -1,3 +1,5 @@
+package Lab3;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -89,7 +91,7 @@ public class Lexer {
     }
 
     public static void main(String[] args) {
-        String input = "(3 + 5) * sqrt(16)";
+        String input = "(3 + 5) * loge(16)";
         try {
             List<Token> tokens = tokenize(input);
             for (Token token : tokens) {

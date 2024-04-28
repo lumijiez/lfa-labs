@@ -1,4 +1,5 @@
-import java.util.HashMap;
+package Lab1;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -6,7 +7,7 @@ public class FiniteAutomaton {
     private final String SS;
     private final Set<String> alphabet;
     private final Map<String, Map<String, String>> T;
-    public FiniteAutomaton(String SS, Set<String> VN, Set<String> VT, Map<String, Map<String, String>> T) {
+    public FiniteAutomaton(String SS, Set<String> VT, Map<String, Map<String, String>> T) {
         this.SS = SS;
         this.alphabet = VT;
         this.T = T;

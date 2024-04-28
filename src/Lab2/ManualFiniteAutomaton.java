@@ -1,3 +1,5 @@
+package Lab2;
+
 import util.Pair;
 import java.util.*;
 
@@ -5,13 +7,11 @@ public class ManualFiniteAutomaton {
 
     private final List<String> stateList;
     private final Set<String> alphabet;
-    private final Set<String> acceptingStates;
     private final Map<String, List<Pair>> T;
 
-    public ManualFiniteAutomaton(List<String> stateList, Set<String> alphabet, Set<String> acceptingStates, Map<String, List<Pair>> T) {
+    public ManualFiniteAutomaton(List<String> stateList, Set<String> alphabet, Map<String, List<Pair>> T) {
         this.stateList = stateList;
         this.alphabet = alphabet;
-        this.acceptingStates = acceptingStates;
         this.T = T;
     }
 
@@ -86,7 +86,7 @@ public class ManualFiniteAutomaton {
         }
     }
 
-    // Method to convert the NFA to Grammar
+    // Method to convert the NFA to Lab1.Grammar
     public void toGrammar() {
         Map<String, String> mappedStates = mapStates(); // Map original states to single-character states
         Map<String, List<String>> grammar = new HashMap<>(); // Create a map to store the grammar rules

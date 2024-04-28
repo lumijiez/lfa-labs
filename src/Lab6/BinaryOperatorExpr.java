@@ -1,4 +1,4 @@
-package ast_parser;
+package Lab6;
 
 class BinaryOperatorExpr extends Expr {
     Expr left;

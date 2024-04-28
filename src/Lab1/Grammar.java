@@ -1,18 +1,14 @@
+package Lab1;
+
 import java.util.*;
 
 public class Grammar {
     private final String SS;
-    private final Set<String> VN;
-    private final Set<String> VT;
-    private final Map<String, List<String>> P;
     private final FiniteAutomaton FA;
 
-    public Grammar(String SS, Set<String> VN, Set<String> VT, Map<String, List<String>> P) {
+    public Grammar(String SS, Set<String> VT, Map<String, List<String>> P) {
         this.SS = SS;
-        this.VN = VN;
-        this.VT = VT;
-        this.P = P;
-        this.FA = new FiniteAutomaton(SS, VN, VT, generateTransitions(P));
+        this.FA = new FiniteAutomaton(SS, VT, generateTransitions(P));
     }
 
     public Map<String, Map<String, String>> generateTransitions(Map<String, List<String>> P) {
@@ -29,10 +25,6 @@ public class Grammar {
             transitions.put(state, stateTransitions);
         }
         return transitions;
-    }
-
-    public FiniteAutomaton getFA() {
-        return this.FA;
     }
 
     public boolean isValid(String word) {
