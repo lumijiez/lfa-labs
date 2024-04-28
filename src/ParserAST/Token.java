@@ -1,4 +1,4 @@
-package Lab6;
+package ParserAST;
 
 public class Token {
     public TokenType type;

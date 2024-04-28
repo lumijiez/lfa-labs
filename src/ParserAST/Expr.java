@@ -1,4 +1,4 @@
-package Lab6;
+package ParserAST;
 
 abstract class Expr {
     abstract double evaluate();

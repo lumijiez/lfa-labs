@@ -1,4 +1,4 @@
-package Lab4;
+package RegularExpressions;
 
 import java.util.Random;
 

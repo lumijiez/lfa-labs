@@ -1,4 +1,4 @@
-package Lab6;
+package ParserAST;
 
 import java.util.List;
 

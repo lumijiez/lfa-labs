@@ -1,6 +1,6 @@
-import Lab1.Grammar;
-import Lab2.ChomskyChecker;
-import Lab2.ManualFiniteAutomaton;
+import RegularGrammars.Grammar;
+import FiniteAutomata.ChomskyChecker;
+import FiniteAutomata.ManualFiniteAutomaton;
 import util.Pair;
 
 import java.util.Arrays;

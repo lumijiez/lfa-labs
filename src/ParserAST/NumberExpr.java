@@ -1,4 +1,4 @@
-package Lab6;
+package ParserAST;
 
 class NumberExpr extends Expr {
     double value;

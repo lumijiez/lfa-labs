@@ -1,4 +1,4 @@
-package Lab2;
+package FiniteAutomata;
 
 import java.util.List;
 import java.util.Map;

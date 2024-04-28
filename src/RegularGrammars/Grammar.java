@@ -1,4 +1,4 @@
-package Lab1;
+package RegularGrammars;
 
 import java.util.*;
 

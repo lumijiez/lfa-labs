@@ -1,4 +1,4 @@
-package Lab2;
+package FiniteAutomata;
 
 import util.Pair;
 import java.util.*;

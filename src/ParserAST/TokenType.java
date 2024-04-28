@@ -1,4 +1,4 @@
-package Lab6;
+package ParserAST;
 
 public enum TokenType {
     NUMBER,
