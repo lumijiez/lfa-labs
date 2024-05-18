@@ -21,7 +21,7 @@ public class ConvertCNF {
         Set<Character> nonTerminals = new HashSet<>(Arrays.asList('S', 'A', 'B', 'C', 'E'));
         Set<Character> terminals = new HashSet<>(Arrays.asList('a', 'b'));
         Map<Character, List<String>> productions = new HashMap<>();
-        productions.put('S', Arrays.asList("baC", "B"));
+        productions.put('S', Arrays.asList("bAC", "B"));
         productions.put('A', Arrays.asList("a", "aS", "bCaCb"));
         productions.put('B', Arrays.asList("AC", "bS", "aAa"));
         productions.put('C', Arrays.asList("e", "AB"));
